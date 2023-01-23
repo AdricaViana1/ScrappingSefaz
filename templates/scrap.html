@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block conteudo %}
+    <body>
+        <div style="height: 50vh;"  class="jumbotron ui-widget">
+        <h1 style="text-align: center;">Consulte artigos do Citsmart</h1>           
+        <hr>
+        <div class="d-flex justify-content-center">
+            <div>
+                <form action="/search" method='POST', enctype='multipart/form-data'>
+                    <div class="form-inline">
+                    <input style="min-width:30%; position:absolute; top: 30%; left: 30%; background: white;" type="text" id="text" name="text" class="form-control" placeholder="Digite a busca..."/>
+                    <button style="position:absolute; left: 63%; top: 30%; margin-right: 50px;" type="submit"name="submit" class="btn btn-primary">Buscar</button>                    
+                                   
+                </div>
+                </fom>
+            </div>
+        </div>
+</div>
+</body>
+{% endblock %}
+
