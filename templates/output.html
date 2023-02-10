@@ -1,43 +1,47 @@
 {% extends 'base.html' %}
 
 {% block conteudo %}
-    <body>
-        <div style="height: 50vh;"  class="jumbotron ui-widget">
-            <h1 style="text-align: center;">Consulte artigos do Citsmart</h1>
-            <hr>
-            <div class="d-flex justify-content-center">
 
+    <body>
+        <div style="height: 20vh;"  class="jumbotron ui-widget">
+        
+            <h1 style="text-align: center;">Artigos encontrados para a busca</h1>
+            <hr>
+            
+                
+        {% for artigo in nome %}
+        <div class="d-flex justify-content-center">
             <div class="table-users">
-                <div class="header">Detalhes do artigo</div>
-                <table cellspacing="0">
+                <p><br></p>
+                <div class="header" inset-inline-start: "50px">Detalhes do artigo</div>
+                <table cellspacing="5">
+                    
                     <tr>
-                        <td><label style="min-width:30%; position:absolute; top: 30%; left: 40%;">Url :</label></td>
-                        <td><label style="min-width:30%; position:absolute; top: 30%; left: 40%;">{{nome['URL']}}</label></td>
+                        <td><label>Titulo: </label></td>
+                        <td><label>{{artigo['Titulo']}}</label></td>
                     </tr>
                     <tr>
-                        <td><label style="min-width:30%; position:absolute; top: 35%; left: 40%;">Titulo: </label></td>
-                        <td><label  style="min-width:30%; position:absolute; top: 35%; left: 40%;">{{nome['Titulo']}}</label></td>
+                        <td><label>Resumo :</label></td>
+                        <td><label>{{artigo['Resumo']}}</label></td>
                     </tr>
                     <tr>
-                        <td><label style="min-width:30%; position:absolute; top: 40%; left: 40%;">Resumo :</label></td>
-                        <td><label style="min-width:30%; position:absolute; top: 40%; left: 40%;">{{nome['Resumo']}}</label></td>
-                    </tr>
+                        <hr3 style="min-width:20%; position:absolute; top: 80%; left: 10%;">
+                    </td>
                     <tr>
-                        <td><a  style="min-width:30%; position:absolute; top: 50%; left: 40%;" href={{nome['URL']}}>Leia o artigo completo</a></td>
+                        <td><a href={{artigo['URL']}}>Leia o artigo completo</a>    
+                        </td>
                     </tr>
                 </table>
             </div>
-            <form action="/download" method="POST">
-                <input style="min-width:20%; position:absolute; top: 80%; left: 10%;" type="submit" value="Importar arquivo">
-            </form>
             <div class="form1">
                 <form action="/" method="GET">
-                    <input style="min-width:10%; position:absolute; top: 85%; left: 10%;" type="submit" value="Voltar">
+                    <input style="min-width:0%; position:relative; top: -100%; left: -80%;"  class="btn btn-success" type="submit"  value="Voltar">
                 </form>
             </div>
+            
         </div>
+        {% endfor %}  
         
-        
-        </body>
- 
+</body>
 {% endblock %}
+ 
